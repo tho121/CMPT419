@@ -15,6 +15,7 @@ Training using mlagents-learn:
 https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Training-ML-Agents.md
 
 Getting the Unity.MLAgents package:
+Get preview package 1.9.0 of the MLAgents package in the Package Manager. Be sure to enable 'preview' packages by clicking on the gear in the top right.
 ![image](https://user-images.githubusercontent.com/4165980/111860755-f2b9bd00-8906-11eb-9d40-9d06547d6aae.png)
 
 
