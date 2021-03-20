@@ -28,3 +28,5 @@ The config overrides for the neural network is in the `Assets/Training/test1.yam
 There's data of previous runs, labeled run1, run2, run3.  I create a new run each time, using information from the previous run to give the training a 'running start'.
 The result is saved as `My Behavior.onnx` in the `results/run#` folder, which I then copied to `Assets/Training/`.  
 This file can be hooked into the `BehaviourParameters` component of the agent to see the trained performance. Disable all other instances when doing this.
+
+Reference video: https://www.youtube.com/watch?v=zPFU30tbyKs&t=1074s
