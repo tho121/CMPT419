@@ -14,6 +14,10 @@ https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Learning-Environm
 Training using mlagents-learn:
 https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Training-ML-Agents.md
 
+Getting the Unity.MLAgents package:
+![image](https://user-images.githubusercontent.com/4165980/111860755-f2b9bd00-8906-11eb-9d40-9d06547d6aae.png)
+
+
 
 I've pushing an initial commit that has a test scene built from the ground up, independant of the assets of the ml-agents example repo.
 The scene allows one to train an agent (the sphere) to move toward the goal (cube).
