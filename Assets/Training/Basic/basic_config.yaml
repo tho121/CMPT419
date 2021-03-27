@@ -1,10 +1,10 @@
 default_settings: 
-  max_steps: 1e6
+  max_steps: 1e7
 behaviors:
   Basic:
     trainer_type: ppo
     hyperparameters:
-      learning_rate: 1e-2
+      learning_rate: 5e-3
       beta: 1e-2
       epsilon: 0.3
       lambd: 0.98

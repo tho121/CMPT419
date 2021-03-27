@@ -23,13 +23,13 @@ public class SimpleWallAgent : Agent
         stepPenalty = 1.0f / (float)MaxStep;
 
 
-        totalDistance = GetSqrDistance();
+        //totalDistance = GetDistance();
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.position);
-        sensor.AddObservation(targetTransform.position);
+        sensor.AddObservation(transform.localPosition);
+        sensor.AddObservation(targetTransform.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -40,7 +40,8 @@ public class SimpleWallAgent : Agent
         float moveSpeed = 3.0f;
         transform.position += new Vector3(moveX, 0, moveZ) * Time.deltaTime * moveSpeed;
 
-        AddReward(-(stepPenalty * GetSqrDistance()/totalDistance));     //penalty per step (1.0 / max step) * distance (current distance / total distance)
+        //AddReward(-(stepPenalty * GetDistance()/totalDistance));     //penalty per step (1.0 / max step) * distance (current distance / total distance)
+        AddReward(-stepPenalty);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -67,11 +68,11 @@ public class SimpleWallAgent : Agent
         }
     }
 
-    private float GetSqrDistance()
+    private float GetDistance()
 	{
-        float x = targetTransform.position.x - transform.position.x;
-        float z = targetTransform.position.z - transform.position.z;
+        float x = targetTransform.localPosition.x - transform.localPosition.x;
+        float z = targetTransform.localPosition.z - transform.localPosition.z;
 
-        return x * x + z * z;
+        return Mathf.Sqrt(x * x + z * z);
     }
 }
