@@ -1,11 +1,11 @@
 default_settings: 
-  max_steps: 4e6
-  time_horizon: 2048
+  max_steps: 1e7
+  time_horizon: 1024
 behaviors:
   SimpleWall:
     trainer_type: ppo
     hyperparameters:
-      learning_rate: 5e-3
+      learning_rate: 2e-2
       beta: 2e-2
       epsilon: 0.3
       lambd: 0.99

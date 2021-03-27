@@ -23,7 +23,7 @@ public class SimpleWallAgent : Agent
         stepPenalty = 1.0f / (float)MaxStep;
 
 
-        //totalDistance = GetDistance();
+        totalDistance = GetDistance();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -40,8 +40,8 @@ public class SimpleWallAgent : Agent
         float moveSpeed = 3.0f;
         transform.position += new Vector3(moveX, 0, moveZ) * Time.deltaTime * moveSpeed;
 
-        //AddReward(-(stepPenalty * GetDistance()/totalDistance));     //penalty per step (1.0 / max step) * distance (current distance / total distance)
-        AddReward(-stepPenalty);
+        AddReward(-(stepPenalty * GetDistance()/totalDistance) * 2.0f);     //penalty per step (1.0 / max step) * distance (current distance / total distance)
+        //AddReward(-stepPenalty);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
