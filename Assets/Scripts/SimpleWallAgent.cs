@@ -5,18 +5,25 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 
-public class BasicAgent : Agent
+public class SimpleWallAgent : Agent
 {
     // Start is called before the first frame update
     [SerializeField] private Transform targetTransform;
     [SerializeField] private Material winMat;
     [SerializeField] private Material loseMat;
     [SerializeField] private MeshRenderer floorMeshRenderer;
+    [SerializeField] private Transform startingLocation;
 
+    private float stepPenalty = 1.0f;
+    private float totalDistance = 1.0f;
 
     public override void OnEpisodeBegin()
     {
-        transform.localPosition = Vector3.zero;
+        transform.position = startingLocation.position;
+        stepPenalty = 1.0f / (float)MaxStep;
+
+
+        totalDistance = GetSqrDistance();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -33,7 +40,7 @@ public class BasicAgent : Agent
         float moveSpeed = 3.0f;
         transform.position += new Vector3(moveX, 0, moveZ) * Time.deltaTime * moveSpeed;
 
-        AddReward(-0.001f);
+        AddReward(-(stepPenalty * GetSqrDistance()/totalDistance));     //penalty per step (1.0 / max step) * distance (current distance / total distance)
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -58,5 +65,13 @@ public class BasicAgent : Agent
             floorMeshRenderer.material = loseMat;
             EndEpisode();
         }
+    }
+
+    private float GetSqrDistance()
+	{
+        float x = targetTransform.position.x - transform.position.x;
+        float z = targetTransform.position.z - transform.position.z;
+
+        return x * x + z * z;
     }
 }
