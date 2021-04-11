@@ -47,7 +47,7 @@ public class Perception1Agent : Agent
         float moveSpeed = 3.0f;
         transform.position += transform.forward * Time.deltaTime * moveSpeed;
 
-        AddReward(-((stepPenalty * 0.1f) + (stepPenalty * GetDistance()/totalDistance * 0.9f) * 2.0f) );     //penalty per step (1.0 / max step) * distance (current distance / total distance)
+        AddReward(-((stepPenalty * 0.1f) + (stepPenalty * GetDistance()/totalDistance * 0.9f)) );     //penalty per step (1.0 / max step) * distance (current distance / total distance)
         //AddReward(-stepPenalty);
     }
 
