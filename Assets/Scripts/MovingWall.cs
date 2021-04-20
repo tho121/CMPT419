@@ -17,10 +17,10 @@ public class MovingWall : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float dir = isMovingRight ? 1.0f : -1.0f;
-        transform.localPosition += transform.right * dir * Time.deltaTime * moveSpeed;
+        transform.localPosition += transform.right * dir * Time.fixedDeltaTime * moveSpeed;
     }
 
 	private void OnTriggerEnter(Collider other)
