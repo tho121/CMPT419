@@ -2139,7 +2139,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 4b97ff935fbd0b94db22d3c1601a7fb2,
+        type: 3}
     - target: {fileID: 2893181197031078210, guid: 8dc10f99c4e84874889165ba6454560c,
         type: 3}
       propertyPath: m_BehaviorName
@@ -2148,12 +2149,12 @@ PrefabInstance:
     - target: {fileID: 2893181197031078210, guid: 8dc10f99c4e84874889165ba6454560c,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2893181197031078210, guid: 8dc10f99c4e84874889165ba6454560c,
         type: 3}
       propertyPath: m_BrainParameters.NumStackedVectorObservations
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2900441140950594234, guid: 8dc10f99c4e84874889165ba6454560c,
         type: 3}
@@ -2296,7 +2297,7 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: -7660710280838998477, guid: 8dc10f99c4e84874889165ba6454560c, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8dc10f99c4e84874889165ba6454560c, type: 3}
 --- !u!114 &924355121396478648 stripped
 MonoBehaviour:

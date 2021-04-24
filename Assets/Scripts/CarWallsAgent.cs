@@ -52,9 +52,9 @@ public class CarWallsAgent : Agent
         carScript.torqueInput = actions.ContinuousActions[1];
         carScript.isBraking = actions.DiscreteActions[0] == 1;
 
-        AddReward(-((stepPenalty * 0.1f) + (stepPenalty * GetDistance()/totalDistance * 0.8f)) );     //penalty per step (1.0 / max step) * distance (current distance / total distance)
+        AddReward(-((stepPenalty * 0.1f) + (stepPenalty * GetDistance()/totalDistance * 0.7f)) );     //penalty per step (1.0 / max step) * distance (current distance / total distance)
         //AddReward(stepPenalty * 0.1f * Mathf.Min(carScript.torqueInput, 1.0f));  //reward for moving forward
-        AddReward(stepPenalty * 0.1f * carScript.torqueInput);
+        AddReward(stepPenalty * 0.2f * carScript.torqueInput);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -72,15 +72,17 @@ public class CarWallsAgent : Agent
     {
         if (other.TryGetComponent<Goal>(out Goal goal))
         {
-            AddReward(rewardBase * 2.0f);
+            AddReward(rewardBase * 1.5f);
             floorMeshRenderer.material = winMat;
+
             EndEpisode();
         }
 
         if (other.TryGetComponent<Wall>(out Wall wall))
         {
-            AddReward(-rewardBase * (Mathf.Max(Mathf.Min( GetDistance() / totalDistance, 1.0f ), 0.05f)));
+            AddReward(-rewardBase * (Mathf.Max(Mathf.Min( GetDistance() / totalDistance, 1.0f ), 0.1f)));
             floorMeshRenderer.material = loseMat;
+
             EndEpisode();
         }
     }
