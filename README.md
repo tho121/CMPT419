@@ -34,4 +34,13 @@ There's data of previous runs, labeled run1, run2, run3.  I create a new run eac
 The result is saved as `My Behavior.onnx` in the `results/run#` folder, which I then copied to `Assets/Training/`.  
 This file can be hooked into the `BehaviourParameters` component of the agent to see the trained performance. Disable all other instances when doing this.
 
-Reference video: https://www.youtube.com/watch?v=zPFU30tbyKs&t=1074s
+Installation Reference video: https://www.youtube.com/watch?v=zPFU30tbyKs&t=1074s
+
+
+Preview:
+
+![carwallscomplex1long](https://user-images.githubusercontent.com/4165980/115945143-1e344800-a46f-11eb-98db-944ae66a07ff.gif)
+
+
+
+
