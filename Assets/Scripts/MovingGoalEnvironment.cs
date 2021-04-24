@@ -6,6 +6,7 @@ public class MovingGoalEnvironment : MonoBehaviour
 {
     public Transform[] GoalLocations;
     public Transform[] StartingLocations;
+	public GameObject[] StaticWalls;
 
 	// Start is called before the first frame update
 	public void Reset()
@@ -19,6 +20,11 @@ public class MovingGoalEnvironment : MonoBehaviour
 		{
 			startIndex = Random.Range(0, StartingLocations.Length);
 			
+		}
+
+		foreach(var wall in StaticWalls)
+		{
+			wall.SetActive(Random.value < 0.5f);
 		}
 	}
 
